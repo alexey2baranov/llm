@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "llm"
+version = "0.1.0"
+description = ""
+authors = ["Aleksei Baranov <alexey2baranov@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "llm", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+loguru = "^0.7.2"
+transformers = "^4.35.2"
+torch = "^2.1.1"
+fastapi = "^0.104.1"
+uvicorn = "^0.24.0.post1"
+openai = "^1.3.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+select = [
+  "F",    # pyflakes
+  "E",    # pycodestyle errors
+  "W",    # pycodestyle warnings
+  "I001", # isort
+  "C4",   # flake8-comprehensions
+  "B",    # flake8-bugbear
+  "ISC",  # flake8-implicit-str-concat
+  "T20",  # flake8-print
+]
+
+# Only allow autofix behavior for isort rule.
+fixable = ["I001"]
+exclude = [".git", "__pycache__", ".mypy_cache", ".pytest_cache"]
+line-length = 120
